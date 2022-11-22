@@ -1,0 +1,14 @@
+{% extends "base.html" %} {% block content %}
+<div>
+    <div class="container_post">
+        <div class="post_image">
+            <img src="https://secure.gravatar.com/avatar/{{ current_user.email }}?d=identicon" alt="">
+        </div>
+    </div>
+    <div class="post_body">
+        <p class="username">{{ current_user.username }}</p>
+        <p class="body">{{ current_user.email }}</p>
+        <p>Cantidad de posts realizados: {{ post_count }}</p>
+    </div>
+</div>
+{% endblock %}

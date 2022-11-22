@@ -1,0 +1,31 @@
+{% extends "base.html" %} {% block content %}
+    <h1>Editar Perfil</h1>
+    {% if user == current_user or current_user.is_administrator() %}
+        <form action="" method="post" novalidate>
+        <a href="{{ url_for("index.index") }}">Home</a>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.name.label }}<br/>
+            {{ form.name(size=32) }}
+            {% for error in form.name.errors %}
+                <span style="color: red">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.location.label }}<br/>
+            {{ form.location(size=32) }}
+            {% for error in form.location.errors %}
+                <span style="color: red">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.about_me.label }}<br/>
+            {{ form.about_me(size=32) }}
+            {% for error in form.about_me.errors %}
+                <span style="color: red">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    {% endif %}
+{% endblock %}
